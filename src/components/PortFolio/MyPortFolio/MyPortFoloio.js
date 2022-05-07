@@ -1,5 +1,5 @@
 import React from 'react';
-import DeleteMyPortFolio from "./DeleteMyPortFolio";
+import DeleteMyPortFolio from "../DeleteMyPortFolio/DeleteMyPortFolio";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit } from "@fortawesome/free-solid-svg-icons";

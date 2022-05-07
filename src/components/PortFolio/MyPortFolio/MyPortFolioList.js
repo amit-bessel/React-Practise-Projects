@@ -1,7 +1,7 @@
 import React,{ useEffect, useState, useRef } from 'react';
 
 import MyPortFoloio from "./MyPortFoloio";
-import useRequest from "../../hooks/useRequest";
+import useRequest from "../../../hooks/useRequest";
 import {Oval} from "react-loader-spinner";
 import styles from "./MyPortFolio.module.css";
 

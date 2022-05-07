@@ -13,32 +13,14 @@ import {ChangePassword} from "./components/ChangePassword";
 
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import {ProtectLogin} from "./components/ProtectedRoute";
-import {PortFolio, MyPortFolioList} from "./components/PortFolio";
+import {PortFolio, MyPortFolioList, AddMyPortFolio} from "./components/PortFolio";
 
 import {AuthContextProvider} from './store/auth-context';
 
 //const ChangePassword = lazy(() => import("./components/ChangePassword"));
 
 function App() {
-  window.addEventListener('DOMContentLoaded', event => {
-    // Navbar shrink function
-    /* var navbarShrink = function () {
-      const navbarCollapsible = document.body.querySelector('#mainNav');
-      if (!navbarCollapsible) {
-          return;
-      }
-      
-      if (window.scrollY === 0) {
-          navbarCollapsible.classList.remove('navbar-shrink')
-      } else {
-          navbarCollapsible.classList.add('navbar-shrink')
-      }
 
-    }; */
-
-    // Shrink the navbar 
-    // navbarShrink();
-  });
 
   return (
     <div className="App">
@@ -55,6 +37,7 @@ function App() {
               {/* <Route path='/profile' element={<ProtectedRoute><Profile /></ProtectedRoute>}></Route>    */}           
               <Route path='/change-password' element={<ProtectedRoute><ChangePassword /></ProtectedRoute>}></Route>   
               <Route path='/my-portfolio' element={<ProtectedRoute><MyPortFolioList /></ProtectedRoute>}></Route>   
+              <Route path='/add-my-portfolio' element={<ProtectedRoute><AddMyPortFolio /></ProtectedRoute>}></Route>   
               <Route path="*" element={<p>There's nothing here: 404!</p>} />  
             </Routes>
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
-import styles from "./MyPortFolio.module.css";
+import styles from "../MyPortFolio/MyPortFolio.module.css";
 
 
 function DeleteMyPortFolio(props) {

@@ -28,10 +28,14 @@ function Header() {
                 Menu<i className="fas fa-bars"></i>
             </button>
             <div className="collapse navbar-collapse" id="navbarResponsive">
-              <ul className="navbar-nav ms-auto">
-                {AuthCtx.isLoggedIn && <li className="nav-item mx-0 mx-lg-1">
-                  <Link className="nav-link py-3 px-0 px-lg-3 rounded" to="my-portfolio">My PortFolio</Link>
-                </li>}
+                {AuthCtx.isLoggedIn && <div class="dropdown navbar-nav ms-auto">
+                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">Dropdown</a>
+                    <div class="dropdown-menu" style={{minWidth: "12rem"}}>
+                      <Link className="nav-link py-3 px-0 px-lg-3 rounded" to="my-portfolio">My PortFolio</Link>
+                      <Link className="nav-link py-3 px-0 px-lg-3 rounded" to="add-my-portfolio">Add PortFolio</Link>
+                    </div>
+                </div>}
+              <ul className="navbar-nav">
                 <li className="nav-item mx-0 mx-lg-1">
                   <Link className="nav-link py-3 px-0 px-lg-3 rounded" to="portfolio">Portfolio</Link>
                 </li>
