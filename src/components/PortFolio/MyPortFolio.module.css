@@ -20,3 +20,13 @@
     transform: translate(-50%, -50%);
     z-index: 1;
 }
+
+.outer__pagination {
+    padding-top: 20px;
+}
+
+.sort__header {
+    margin: 10px 2px;
+    padding: 10px 2px;
+    border: 1px solid #ccc;
+}

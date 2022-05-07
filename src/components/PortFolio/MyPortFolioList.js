@@ -67,7 +67,7 @@ function MyPortFolioList() {
     },[response, error, isLoading])
 
     const paginationBasic = (
-        <div style={{paddingTop: "20px"}}>
+        <div className={`${styles.outer__pagination}`}>
             <Pagination size="sm">
                 <Pagination.First onClick={() => changePageHandler(1)} />
                     <Pagination.Prev />{items}<Pagination.Next />
@@ -100,7 +100,7 @@ function MyPortFolioList() {
                     <div className="divider-custom-line"></div>
                 </div>
 
-                <div style={{margin: "10px 2px",padding: "10px 2px", border: "1px solid #ccc" }}>
+                <div className={`${styles.sort__header}`}>
                     <div className="row align-items-start">
                         <div className="col-6"></div>
                         <div className="col-4">
