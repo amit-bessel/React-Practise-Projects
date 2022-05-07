@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 
 function HomeContact() {
-    const { register, formState: { errors, isValid, isSubmitted, isSubmitSuccessful }, handleSubmit } = useForm();
+    const { register, reset, formState: { errors, isValid, isSubmitSuccessful }, handleSubmit } = useForm();
     const onSubmit = (data) => {
        
         alert(JSON.stringify(data));
@@ -15,7 +15,7 @@ function HomeContact() {
         <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">  Contact Me </h2>
 
        <div className="divider-custom">
-        <div className="divider-custom-line"></div>
+            <div className="divider-custom-line"></div>
             <div className="divider-custom-icon">
                 <i className="fas fa-star"></i>
             </div>
@@ -55,12 +55,18 @@ function HomeContact() {
                     {errors?.phone?.type === "pattern" && (<div className="invalid-feedback d-block">Phone pattern is wrong.</div>)}
                 </div>
                 <div className="form-floating mb-3">
-                    { <textarea className="form-control" id="message" type="text" {...register("message", { required: true })}></textarea>}
+                    { <textarea className="form-control" id="message" type="text" style={{height: "auto"}} {...register("message", { required: true })}></textarea>}
                     <label htmlFor="message">Message</label>
                     { errors?.message && (<div className="invalid-feedback d-block">Message is required.</div>)}
                 </div>
                 
-                <button className="btn btn-primary btn-xl" id="submitButton" type="submit">Send</button>
+                <button className="btn btn-primary btn-md" id="submitButton" type="submit">Send</button> &nbsp;&nbsp;
+                <button onClick={() =>  reset({
+                  name: '',
+                  email: '',
+                  phone: '',
+                  message: '',
+                })} className="btn btn-danger"type="submit">Reset </button>
                 </form>
             </div>
         </div>

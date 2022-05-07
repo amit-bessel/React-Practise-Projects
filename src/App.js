@@ -1,11 +1,23 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { lazy } from "react";
 import "./App.css";
 import "./styles.css";
-import About from "./components/About/About";
-import Employee from "./components/Employee/Employee";
-import Home from "./components/Home/Home";
-import Footer from "./components/Layout/Footer/Footer";
-import Header from "./components/Layout/Header/Header";
+import { About } from "./components/About";
+import {Home} from "./components/Home";
+import {Footer} from "./components/Layout/Footer";
+import {Header} from "./components/Layout/Header";
+import {Login} from "./components/Login";
+// import {Profile} from "./components/Profile";
+import {ChangePassword} from "./components/ChangePassword";
+
+
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import {ProtectLogin} from "./components/ProtectedRoute";
+import {PortFolio, MyPortFolioList} from "./components/PortFolio";
+
+import {AuthContextProvider} from './store/auth-context';
+
+//const ChangePassword = lazy(() => import("./components/ChangePassword"));
 
 function App() {
   window.addEventListener('DOMContentLoaded', event => {
@@ -28,22 +40,28 @@ function App() {
     // navbarShrink();
   });
 
-
   return (
     <div className="App">
-      <BrowserRouter>
-       
-        <Header />
+      <AuthContextProvider>
+        <BrowserRouter>
+        
+          <Header />
 
-          <Routes>
-            <Route exact path='/about' element={<About />}></Route>
-            <Route exact path='/portfolio' element={<Employee />}></Route>  
-            <Route path='/' element={<Home />}></Route>        
-          </Routes>
+            <Routes>
+              <Route path='/about' element={<About />}></Route>
+              <Route path='/portfolio' element={<PortFolio />}></Route>  
+              <Route exact path='/' element={<Home />}></Route>   
+              <Route path='/login' element={<ProtectLogin><Login /></ProtectLogin>}></Route>              
+              {/* <Route path='/profile' element={<ProtectedRoute><Profile /></ProtectedRoute>}></Route>    */}           
+              <Route path='/change-password' element={<ProtectedRoute><ChangePassword /></ProtectedRoute>}></Route>   
+              <Route path='/my-portfolio' element={<ProtectedRoute><MyPortFolioList /></ProtectedRoute>}></Route>   
+              <Route path="*" element={<p>There's nothing here: 404!</p>} />  
+            </Routes>
 
-        <Footer />
-                
-      </BrowserRouter>
+          <Footer />
+                  
+        </BrowserRouter>
+      </AuthContextProvider>
     </div>
   );
 }

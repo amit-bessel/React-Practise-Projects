@@ -12,10 +12,11 @@ export default class Portfolio extends Component {
     }
 
     componentDidMount() {
-        axios.get(`${process.env.REACT_APP_BASE_URL}portfolio`)
+        const tt = true;
+        axios.get(`${process.env.REACT_APP_BASE_URL}portfolio?feature=${tt}`)
         .then((response) => {
             this.setState({
-                portfolioData: response.data.filter((item) => item.feature === true)
+                portfolioData: response.data.items
             })
         })
         .catch(error => {
@@ -26,7 +27,7 @@ export default class Portfolio extends Component {
     render() {
         if(!this.state.IsApiError) {
             return (
-                <div>
+                <React.Fragment>
                     <section className="page-section portfolio" id="portfolio">
                         <div className="container">
                             <h2 className="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
@@ -89,7 +90,7 @@ export default class Portfolio extends Component {
                             </div>
                         </div>
                     </section>
-                </div>
+                </React.Fragment>
             )
         }
         else {
